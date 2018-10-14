@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#29166f"
+    android:paddingBottom="16dp"
+    tools:context="com.deji_cranium.unilorinleague.SplashScreen">
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:id="@+id/unilorin_logo"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/unilorin_logo"
+        android:layout_centerInParent="true"
+        android:padding="2dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
+    <ProgressBar
+        android:layout_width="50dp"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_height="50dp"
+        android:layout_below="@+id/unilorin_logo"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Deji Atoyebi (Cranium)"
+        android:id="@+id/deji_atoyeb"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

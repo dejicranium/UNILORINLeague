@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:layout_width="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="75dp"
+        android:id="@+id/progressBar"
+        android:layout_gravity="center_horizontal"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:id="@+id/error_layout"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connection Error."
+            android:layout_marginBottom="10dp"
+            android:id="@+id/error_connecting"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/error_connecting"
+            android:layout_height="wrap_content"
+            android:id="@+id/rec_refresh_button"
+            android:layout_centerInParent="true"
+            android:background="@drawable/round_button"
+            android:text="Try Again"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:isScrollContainer="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/webView"
+                android:isScrollContainer="false"
+                android:background="@android:color/transparent"
+                android:scrollbars="none"
+                android:visibility="invisible">
+            </WebView>
+
+            <Button
+                android:id="@+id/visit_website"
+                android:text="Visit Website"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.00"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+

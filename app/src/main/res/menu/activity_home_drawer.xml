@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/latest_news"
+            android:icon="@drawable/ic_action_latest"
+            android:title="League News"
+            />
+
+        <item
+            android:id="@+id/league_table"
+            android:icon="@drawable/ic_table"
+            android:title="League Table" />
+        <item
+            android:id="@+id/fixtures"
+            android:icon="@drawable/ic_fixtures"
+            android:title="Fixtures" />
+
+        <item
+            android:id="@+id/top_scorers"
+
+            android:icon="@drawable/ic_top_scorers"
+            android:title="Top Scorers"/>
+
+        <item
+            android:id="@+id/assists"
+            android:icon="@drawable/ic_assists"
+            android:title="Assists"/>
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/other_sport_news"
+                android:icon="@drawable/ic_other_sports"
+                android:title="General Sports News" />
+
+
+            <item
+                android:id="@+id/bookmarks"
+                android:icon="@drawable/ic_bookmark"
+                android:title="Bookmarks"/>
+
+            <item
+                android:id="@+id/about"
+                android:title="Credits"/>
+            </menu>
+    </item>
+
+
+
+</menu>

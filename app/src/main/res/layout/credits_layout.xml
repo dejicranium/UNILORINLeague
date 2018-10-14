@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:lineSpacingExtra="10dp"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:text="The Unilorin League App was first developed in 2017 under the administration of Adewale Bashir Bello (Bash), who presently serves as the Students' Union Sport Secretary, 2017/2018 session."
+        android:textSize="15dp"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Developer:"
+        android:gravity="center_horizontal"
+        android:textStyle="normal"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:text="Deji Atoyebi (Cranium)"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Contact"
+        android:textColor="@android:color/white"
+        android:background="@drawable/contact_button"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
