@@ -91,7 +91,6 @@ public class AssistsFragment extends Fragment {
 
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +104,6 @@ public class AssistsFragment extends Fragment {
         View view = inflater.inflate(R.layout.tables_fragment, container, false);
         parentView = view;
 
-
         mErrorLayout = (RelativeLayout)view.findViewById(R.id.error_layout);
         mRecRefreshButton = (Button)view.findViewById(R.id.rec_refresh_button);
 
@@ -116,7 +114,6 @@ public class AssistsFragment extends Fragment {
                 mErrorLayout.setVisibility(View.GONE);
             }
         });
-
 
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         mWebView = (WebView)view.findViewById(R.id.webView);
@@ -154,8 +151,6 @@ public class AssistsFragment extends Fragment {
             }
 
         }
-
-
 
         @Override
         protected void onPreExecute() {

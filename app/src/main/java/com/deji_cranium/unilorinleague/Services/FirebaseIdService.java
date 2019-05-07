@@ -11,7 +11,6 @@ import com.google.firebase.iid.zzd;
 
 public class FirebaseIdService extends FirebaseInstanceIdService {
 
-
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();

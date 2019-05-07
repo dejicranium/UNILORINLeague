@@ -84,9 +84,6 @@ public class Home extends AppCompatActivity
 
     }
 
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -96,7 +93,6 @@ public class Home extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
 
 
     @Override
@@ -133,25 +129,23 @@ public class Home extends AppCompatActivity
 
 
         if (id == R.id.latest_news) {
-                if (!activeFragment.equalsIgnoreCase("homeFragment")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, GeneralNewsFragment.newInstance()).commit();
-                    activeFragment = "homeFragment";
-                    toolbar.setTitle("Latest News");
-                }
-            // Handle the camera action
+            if (!activeFragment.equalsIgnoreCase("homeFragment")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, GeneralNewsFragment.newInstance()).commit();
+                activeFragment = "homeFragment";
+                toolbar.setTitle("Latest News");
+            }
 
         }
 
 
-
         else if (id == R.id.fixtures){
-                    if (!activeFragment.equalsIgnoreCase("fixturesFragment")){
-                        toolbar.setTitle("Fixtures");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, FixturesFragments.newInstance()).commit();
-                        activeFragment = "fixturesFragment";
-                    }
-
+            if (!activeFragment.equalsIgnoreCase("fixturesFragment")){
+                toolbar.setTitle("Fixtures");
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, FixturesFragments.newInstance()).commit();
+                activeFragment = "fixturesFragment";
             }
+
+        }
 
 
         else if (id == R.id.other_sport_news){
@@ -218,7 +212,6 @@ public class Home extends AppCompatActivity
             return true;
 
     }
-
 
     private void setDisplay(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);

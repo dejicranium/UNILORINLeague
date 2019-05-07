@@ -142,12 +142,7 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                     recyclerView.setAdapter(adapter);
                 }
             }
-
         }
-
-
-
-
 
         if (id == R.id.sort){
             if (mIsSortByTitle == false) {
@@ -155,31 +150,23 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                 new SortArticlesTask().execute();
                 sortItem.setTitle("Sort by Time");
             }
-
-
         }
-
-
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mActionBar = ((Home) getActivity()).getSupportActionBar();
-
     }
 
-        @Override
+    @Override
     public void onPause() {
         super.onPause();
         if (task !=null && !task.isCancelled()){
             task.cancel(true);
             swipeRefreshLayout.setRefreshing(false);
-
         }
     }
 
@@ -189,10 +176,7 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
         if (task !=null && !task.isCancelled()){
             task.cancel(true);
             swipeRefreshLayout.setRefreshing(false);
-
         }
-
-
     }
 
     @Override
@@ -206,7 +190,6 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
         if (task !=null && !task.isCancelled()){
             task.cancel(true);
             swipeRefreshLayout.setRefreshing(false);
-
         }
     }
 
@@ -229,12 +212,11 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
         parentView = view;
         swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeRefreshLayout);
         layoutManager = new LinearLayoutManager(getContext());
-        recyclerView = (RecyclerView)view.findViewById(R.id.root_recycler);
 
+        recyclerView = (RecyclerView)view.findViewById(R.id.root_recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         swipeRefreshLayout.setOnRefreshListener(this);
-
 
         articlesFromDb = new ArrayList<>();
         Cursor cursor = sqLiteDatabaseForReading.rawQuery("Select count(*) FROM othersportsnews", null, null);
@@ -261,57 +243,11 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
          * from the database and serving the list to the adapter.
          */
         else {
-
             new LoadFeedFromDBTask().execute();
-
-           /** try {
-                cursor = sqLiteDatabaseForReading.rawQuery("SELECT * from othersportsnews", null, null);
-
-                while (cursor.moveToNext()) {
-                    String articleTitle = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.NEWS_TITLE));
-                    String articleDescription = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.DESCRIPTION));
-                    String articleLink = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.NEWS_LINK));
-                    String articleAuthor = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.AUTHOR));
-                    String articleRead = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.READ));
-
-                    //doing these because I need to know the article type because it's needed in the detailsactivity
-                    //to decide which db to input data in
-                    String articleType = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.TYPE));
-                    //we need to ensure that our article adapter knows that the article is already read.
-                    String articlePubDate = cursor.getString(cursor.getColumnIndex(NewsFeedDBHelper.PUB_DATE));
-
-
-                    articlesFromDb.add(new Article(articleTitle, articleLink, articleDescription, articleAuthor, articlePubDate, articleType, articleRead));
-
-
-                }
-                adapter = new ArticleAdapter(getContext(), articlesFromDb, new CLickListener() {
-                    @Override
-                    public void onPositionClicked(int postion) {
-
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-
-
-            }
-
-
-            recyclerView.setAdapter(adapter);
-            cursor.close();
-            swipeRefreshLayout.setRefreshing(false);**/
         }
-
-
 
         return view;
     }
-
-
-
-
-
 
     @Override
     public void onRefresh() {
@@ -320,15 +256,13 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
     }
 
 
-
-
-
     private class LoadOtherSportsNews extends AsyncTask<Void, Void, List<Article>> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             swipeRefreshLayout.setRefreshing(true);
         }
+
         @Override
         protected List<Article> doInBackground(Void... voids) {
             try{
@@ -342,8 +276,6 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                 pullParser.parse(urlConnection.getInputStream());
                 articlesList = pullParser.getOtherSportsNews();
 
-
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -354,7 +286,6 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
             }
             return articlesList;
         }
-
 
 
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -418,7 +349,6 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
 
                 }
 
-
                 /**
                  * The condition means that:
                  *  if the first article doesn't exist in the database;
@@ -450,13 +380,10 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                             }
                             //else stop the loop;
                             else {
-
-
-
                                 break;
                             }
-
                         }
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -468,25 +395,13 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                     Toast.makeText(getContext(), "No new articles", Toast.LENGTH_LONG).show();
 
                 }
-
-
             }
-
-
 
             else {
                 swipeRefreshLayout.setRefreshing(false);
                 Snackbar.make(parentView, "Connect to the internet to get updates.", Snackbar.LENGTH_LONG).show();
             }
-
-
-
-
-
-
         }
-
-
     }
 
     private boolean articleExists(Article article){
@@ -494,17 +409,13 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
         String selection = NewsFeedDBHelper.NEWS_TITLE + " = ?";
         String[] selectionArgs = {article.getTitle()};
         Cursor c = sqLiteDatabaseForReading.query(NewsFeedDBHelper.TABLE_OTHER_SPORT_NEWS, projection, selection, selectionArgs, null, null, null);
-        boolean articleExists = c.getCount() >0; // article exists if the cursor count is more than 0 (meant to be 1);
+        boolean articleExists = c.getCount() > 0; // article exists if the cursor count is more than 0 (meant to be 1);
         c.close();
         return articleExists;
     }
 
 
-
-
-
     private class HideAllReadTask extends AsyncTask<Void, Void, ArticleAdapter>{
-
         @Override
         protected ArticleAdapter doInBackground(Void... voids) {
             ArticleAdapter lAdapter = getUnreadArticleAdapter();
@@ -569,13 +480,7 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
         });
 
         return lAdapter;
-
-
     }
-
-
-
-
 
 
     public ArticleAdapter sortedArticleAdapter(){
@@ -600,7 +505,6 @@ public class OtherSportsFragment extends Fragment implements SwipeRefreshLayout.
                 }
             });
         }
-
 
         return new ArticleAdapter(getContext(), lArticles, new CLickListener() {
             @Override

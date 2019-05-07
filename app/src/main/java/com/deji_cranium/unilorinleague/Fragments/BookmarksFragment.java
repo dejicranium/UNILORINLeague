@@ -41,8 +41,6 @@ public class BookmarksFragment extends Fragment {
     private SortArticlesTask sortArticlesTask;
     List<Article>bookmarks;
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +66,6 @@ public class BookmarksFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.bookmark_fragment_menu, menu);
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -124,21 +121,19 @@ public class BookmarksFragment extends Fragment {
             if (!bookmarks.isEmpty()){
                 mAdapater = new ArticleAdapter(getContext(), bookmarks, new CLickListener() {
                     @Override
-                    public void onPositionClicked(int postion) {
+                    public void onPositionClicked(int position) {
 
                     }
                 });
                 recyclerView.setAdapter(mAdapater);
             }
-            else {
 
-                //needs to be changed;
+            else {
+                // needs to be changed;
                 Toast.makeText(getContext(), "There are presently no bookmarks available", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-
 
     private class SortArticlesTask extends AsyncTask<Void, Void, ArticleAdapter>{
 
@@ -157,9 +152,6 @@ public class BookmarksFragment extends Fragment {
         }
     }
 
-
-
-
     public ArticleAdapter sortedArticleAdapter(){
         List<Article>lArticles = new ArrayList<>();
 
@@ -172,8 +164,6 @@ public class BookmarksFragment extends Fragment {
                 }
             });
         }
-
-
 
         return new ArticleAdapter(getContext(), lArticles, new CLickListener() {
             @Override

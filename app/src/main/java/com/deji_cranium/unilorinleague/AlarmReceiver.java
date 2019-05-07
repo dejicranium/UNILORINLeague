@@ -69,20 +69,12 @@ public class AlarmReceiver extends BroadcastReceiver {
                     .setContentIntent(pendingIntent)
                     .build();
 
-
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             notification.flags |= Notification.FLAG_AUTO_CANCEL;
             notificationManager.notify(0, notification);
 
         }
     }
-
-
-        //search for latest unilorinleaguenews;
-
-
-
-
 
     private class GetLeagueNews extends AsyncTask<Void, Void, List<Article>> {
 
@@ -103,14 +95,16 @@ public class AlarmReceiver extends BroadcastReceiver {
             HttpURLConnection urlConnection = null;
             try {
                 urlConnection = (HttpURLConnection) url.openConnection();
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 e.printStackTrace();
-
                 return null;
             }
+
             urlConnection.setConnectTimeout(15000);
             urlConnection.setReadTimeout(15000);
             urlConnection.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+
             try {
                 pullParser.parse(urlConnection.getInputStream());
             } catch (XmlPullParserException e) {
@@ -150,12 +144,10 @@ public class AlarmReceiver extends BroadcastReceiver {
                         break;
                     }
 
-
                 }
             }
         }
     }
-
 
 
     private class GetOtherSportNews extends AsyncTask<Void, Void, List<Article>>{
@@ -170,6 +162,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 return null;
             }
             HttpURLConnection urlConnection = null;
+
             try {
                 urlConnection = (HttpURLConnection) url.openConnection();
             } catch (IOException e) {
@@ -247,7 +240,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                     }
 
                 }
-    }
+        }
     }
 
 

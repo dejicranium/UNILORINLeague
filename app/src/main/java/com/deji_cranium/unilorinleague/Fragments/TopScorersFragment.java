@@ -48,7 +48,6 @@ public class TopScorersFragment extends Fragment {
         return new TopScorersFragment();
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -112,8 +111,6 @@ public class TopScorersFragment extends Fragment {
 
     }
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -138,10 +135,7 @@ public class TopScorersFragment extends Fragment {
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
 
-
-
         return view;
-
     }
 
 
@@ -151,8 +145,6 @@ public class TopScorersFragment extends Fragment {
         final String topScorersUrl = "http://unilorinleague.org/list/top-scorers/";
         Elements tables;
 
-
-
         @Override
         protected String doInBackground(Void... voids) {
             try {
@@ -161,7 +153,6 @@ public class TopScorersFragment extends Fragment {
                 Document doc = Jsoup.connect(topScorersUrl).get();
 
                 tables =  doc.getElementsByTag("table");
-
 
             } catch (IOException e) {
                 Snackbar.make(parentView, "Something went wrong. Try again!", Snackbar.LENGTH_LONG).show();
@@ -188,8 +179,6 @@ public class TopScorersFragment extends Fragment {
             mProgressBar.setIndeterminate(true);
 
         }
-
-
 
         @Override
         protected void onPostExecute(String table) {

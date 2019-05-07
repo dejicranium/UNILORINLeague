@@ -32,7 +32,6 @@ public class DetailsActivity extends AppCompatActivity {
     private String mArticleLink;
     private String mArticlePubDate;
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -46,29 +45,22 @@ public class DetailsActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-
         mDb = new NewsFeedDBHelper(getBaseContext());
         mSqliteDatabaseForReading = mDb.getReadableDatabase();
         mSqLiteDatabaseForWriting = mDb.getWritableDatabase();
-        
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("News");
 
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
 
         Bundle bundle = getIntent().getExtras();
         if (bundle.getParcelable("article") != null){
@@ -82,27 +74,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         task = new AddBookMarkTask();
         new MarkAsReadTask().execute();
-
-/**
-        Bundle bundle = getIntent().getExtras();
-        if (bundle.getParcelable("article") != null) {
-
-
-            article = bundle.getParcelable("article");
-
-            //the first thing I'm going to do is to mark the article as read
-
-            mArticleTitle = article.getTitle();
-            mArticleDescription = article.getDescription();
-            mArticleLink = article.getLink();
-            mRead = article.getRead();
-            mAuthor = article.getAuthor();
-            mType = article.getType();
-            mRead = article.getRead();
-
-        }
- **/
-
 
         getSupportFragmentManager().beginTransaction().add(R.id.root, DetailsFragment.newInstance()).commit();
 
@@ -119,10 +90,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (id == R.id.bookmark) {
             task = new AddBookMarkTask();
             task.execute();
-
-
         }
-
 
          return super.onOptionsItemSelected(item);
     }
@@ -134,7 +102,6 @@ public class DetailsActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
 
-
             if (!articleExists(NewsFeedDBHelper.TABLE_BOOKMARKS, article)) {
 
                 ContentValues contentValues = new ContentValues();
@@ -144,7 +111,6 @@ public class DetailsActivity extends AppCompatActivity {
                 contentValues.put(NewsFeedDBHelper.NEWS_LINK, mArticleLink);
                 contentValues.put(NewsFeedDBHelper.PUB_DATE, mArticlePubDate);
                 contentValues.put(NewsFeedDBHelper.TYPE, "bookmark");
-
 
                 long newRowId = mSqLiteDatabaseForWriting.insert(NewsFeedDBHelper.TABLE_BOOKMARKS, null, contentValues);
                 status = "success";

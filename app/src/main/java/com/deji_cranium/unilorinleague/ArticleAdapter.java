@@ -36,6 +36,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         this.inflater = LayoutInflater.from(context);
         this.listener = listener;
     }
+
     @Override
     public ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.articles_row, parent, false);
@@ -73,10 +74,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public int getItemCount() {
         return mArticlesList.size();
     }
-
-
-
-
 
 
 

@@ -22,7 +22,6 @@ public class NewsFeedDBHelper extends SQLiteOpenHelper {
     public static final String NEWS_TITLE = "title";
     public static final String NEWS_LINK = "link";
     public static final String DESCRIPTION = "description";
-    public static final String CATEGORY = "category";
     public static final String TYPE = "type";
     public static final String READ = "read";
     public static final String PUB_DATE = "pubDate";
@@ -39,7 +38,6 @@ public class NewsFeedDBHelper extends SQLiteOpenHelper {
             READ + " TEXT,"+
             AUTHOR + " TEXT)";
 
-
     private static final String CREATE_TABLE_OTHER_SPORT_NEWS = "CREATE TABLE IF NOT EXISTS " + TABLE_OTHER_SPORT_NEWS + "("+
             ID + " INTEGER PRIMARY KEY," +
             NEWS_TITLE + " TEXT,"+
@@ -51,8 +49,6 @@ public class NewsFeedDBHelper extends SQLiteOpenHelper {
             DESCRIPTION + " TEXT,"+
             AUTHOR + " TEXT)";
 
-
-
     private static final String CREATE_BOOKMARKS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_BOOKMARKS + "("+
             ID + " INTEGER PRIMARY KEY," +
             NEWS_TITLE + " TEXT,"+
@@ -62,7 +58,6 @@ public class NewsFeedDBHelper extends SQLiteOpenHelper {
             TYPE + " TEXT,"+
             DESCRIPTION + " TEXT,"+
             AUTHOR + " TEXT)";
-
 
     public NewsFeedDBHelper(Context context) {
         super(context, DATABASE_NAME, null, SCHEMA_VERSION);

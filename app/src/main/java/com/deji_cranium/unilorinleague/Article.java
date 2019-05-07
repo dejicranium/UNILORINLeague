@@ -23,15 +23,12 @@ public class Article implements Parcelable {
     private String mPubDate;
     private String mType;
 
-
     public Article() {
         mCategories = new ArrayList<>();
         mRead = "none";
         mType = "none";
 
     }
-
-
 
     public Article(String title, String link, String description, String author, String pubDate, String type, String read){
         mTitle = title;

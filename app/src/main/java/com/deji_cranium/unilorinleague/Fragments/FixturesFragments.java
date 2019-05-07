@@ -105,8 +105,6 @@ public class FixturesFragments extends Fragment {
         View view = inflater.inflate(R.layout.tables_fragment, container, false);
         parentView = view;
 
-
-
         mErrorLayout = (RelativeLayout)view.findViewById(R.id.error_layout);
         mRecRefreshButton = (Button)view.findViewById(R.id.rec_refresh_button);
 
@@ -121,14 +119,8 @@ public class FixturesFragments extends Fragment {
         mProgressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         webView = (WebView)view.findViewById(R.id.webView);
 
-
-
-
-
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
-
-
 
         return view;
     }
@@ -148,9 +140,6 @@ public class FixturesFragments extends Fragment {
                 Document document = Jsoup.connect(UNILORIN_LEAGUE_FIXTURES).get();
                 tableDiv = document.select("div.entry-content");
 
-
-
-
             } catch (IOException e) {
                 e.printStackTrace();
 
@@ -161,9 +150,8 @@ public class FixturesFragments extends Fragment {
             if (tableDiv != null){
                 return tableDiv.toString();
             }
-            else {
-                return null;
-            }
+            return null;
+
 
         }
 
@@ -202,7 +190,6 @@ public class FixturesFragments extends Fragment {
             }
 
         }
-
 
     }
 }

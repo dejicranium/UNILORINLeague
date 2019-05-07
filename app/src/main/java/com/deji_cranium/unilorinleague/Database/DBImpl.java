@@ -15,7 +15,6 @@ public class DBImpl {
     private static SQLiteDatabase mSqliteDatabaseForReading = mDbHelper.getReadableDatabase();
     private static SQLiteDatabase mSqliteDatabaseForWriting = mDbHelper.getWritableDatabase();
 
-
     public static SQLiteDatabase getReadableDatabaseInstance(Context context){
         mContext = context;
         mDbHelper = new NewsFeedDBHelper(mContext);
@@ -27,6 +26,4 @@ public class DBImpl {
         mDbHelper = new NewsFeedDBHelper(mContext);
         return mSqliteDatabaseForWriting;
     }
-
-
 }

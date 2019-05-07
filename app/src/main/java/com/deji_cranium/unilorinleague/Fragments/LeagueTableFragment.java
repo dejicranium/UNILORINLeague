@@ -78,9 +78,9 @@ public class LeagueTableFragment extends Fragment {
     }
 
     private void onRefresh() {
-            loadLeagueTableTask.cancel(true);
-            loadLeagueTableTask = new LoadLeagueTable();
-            loadLeagueTableTask.execute();
+        loadLeagueTableTask.cancel(true);
+        loadLeagueTableTask = new LoadLeagueTable();
+        loadLeagueTableTask.execute();
 
     }
 
@@ -126,15 +126,9 @@ public class LeagueTableFragment extends Fragment {
         mWebView = (WebView)view.findViewById(R.id.webView);
         mWebView.setHorizontalScrollBarEnabled(false);
         mWebView.setVerticalScrollBarEnabled(false);
-        //mWebView.getSettings().setLoadWithOverviewMode(true);
-        //mWebView.getSettings().setUseWideViewPort(true);
 
         return view;
     }
-
-
-
-
 
     private class LoadLeagueTable extends AsyncTask<Void, Void, String>{
 
@@ -144,22 +138,20 @@ public class LeagueTableFragment extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL(leagueTableUrl);
                 Document doc = Jsoup.connect(leagueTableUrl).get();
                 tables =  doc.getElementsByTag("table");
 
-
-            } catch (IOException e) {
-
+            }
+            catch (IOException e) {
                 Snackbar.make(parentView, "Something went wrong. Try again!", Snackbar.LENGTH_LONG).show();
                 return null;
             }
+
             if (tables != null){
                 return tables.toString();
             }
-            else{
-                return null;
-            }
+            return null;
+
         }
 
         @Override
@@ -189,8 +181,6 @@ public class LeagueTableFragment extends Fragment {
                 Snackbar.make(parentView, "Connection Error. Enable active network connection.", Snackbar.LENGTH_LONG).show();
                 mErrorLayout.setVisibility(View.VISIBLE);
             }
-
-
 
         }
     }

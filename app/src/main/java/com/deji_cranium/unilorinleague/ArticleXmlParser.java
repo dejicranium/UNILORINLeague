@@ -28,8 +28,6 @@ public class ArticleXmlParser {
     }
 
 
-
-
     public List<Article>getLeagueNews(){
         List<Article>getLeagueNews = new ArrayList<>();
 
@@ -53,8 +51,6 @@ public class ArticleXmlParser {
     }
 
 
-
-
     public List<Article> getOtherSportsNews(){
         List<Article>otherSportNews = new ArrayList<>();
         for (Article article: articlesList){
@@ -72,8 +68,8 @@ public class ArticleXmlParser {
             }
 
         }
-        return otherSportNews;
 
+        return otherSportNews;
     }
 
 

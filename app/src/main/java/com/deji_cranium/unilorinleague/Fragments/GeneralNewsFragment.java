@@ -153,17 +153,12 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
 
         }
 
-
-
-
-
         if (id == R.id.sort){
             if (mIsSortByTitle == false) {
                 mIsSortByTitle = true;
                 new SortArticlesTask().execute();
             }
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -174,8 +169,6 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
         super.onAttach(context);
         neuton = Typeface.createFromAsset(getActivity().getAssets(), "Neuton-Bold.ttf");
         mActionBar = ((Home) getActivity()).getSupportActionBar();
-
-
     }
 
     @Override
@@ -188,7 +181,6 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
         mActionBar.setTitle("League News");
         mIsReadHidden = false;
         mIsSortByTitle = false;
-
     }
 
     public static GeneralNewsFragment newInstance() {
@@ -209,7 +201,6 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         swipeRefreshLayout.setOnRefreshListener(this);
-
 
 
         /**
@@ -305,17 +296,14 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
         if (task != null && !task.isCancelled()) {
             task.cancel(true);
             swipeRefreshLayout.setRefreshing(false);
-
         }
         db.close();
-        ;
     }
 
     @Override
     public void onStop() {
         super.onStop();
         swipeRefreshLayout.setRefreshing(false);
-
     }
 
     @Override
@@ -337,15 +325,7 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
     public void onRefresh() {
         task = new LoadFeedTask();
         task.execute();
-
-
     }
-
-
-
-    /**
-     * A sublclass of Asynctask to help l
-     */
 
     private class LoadFeedTask extends AsyncTask<Void, Void, List<Article>> {
         Cursor c = null;
@@ -440,17 +420,8 @@ public class GeneralNewsFragment extends Fragment implements SwipeRefreshLayout.
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-                    //int interval = 10000;
-                     //Intent checkForNewArticlesIntent = new Intent(getContext(), AlarmReceiver.class);
-                     //PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, checkForNewArticlesIntent, 0);
-                     //AlarmManager manager= (AlarmManager)getContext().getSystemService(Context.ALARM_SERVICE);
-                     //manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-
-
                     swipeRefreshLayout.setRefreshing(false);
                     recyclerView.setAdapter(adapter);
-
                 }
 
 

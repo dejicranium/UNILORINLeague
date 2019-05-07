@@ -58,7 +58,6 @@ public class DetailsFragment extends Fragment {
     private Button mShareBtn;
     private Button mVisitWebsiteBtn;
 
-
     public static DetailsFragment newInstance(){
         return new DetailsFragment();
     }
@@ -74,8 +73,6 @@ public class DetailsFragment extends Fragment {
         super.onAttach(context);
         mNeuton = Typeface.createFromAsset(getActivity().getAssets(), "Neuton-Bold.ttf");
     }
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
@@ -103,10 +100,8 @@ public class DetailsFragment extends Fragment {
         if (bundle.getParcelable("article")!= null) {
             article = bundle.getParcelable("article");
 
-
             mArticleLink = article.getLink();
             mArticleTitle = article.getTitle();
-
 
             String continueReadingArticle = "<a style='color:#3498db; text-decoration:none;' href = \"" + article.getLink() + "\">" +"" +
                     " Continue Reading "+ article.getTitle()+"</a>";
@@ -115,14 +110,9 @@ public class DetailsFragment extends Fragment {
                     article.getDescription() + continueReadingArticle+ "" +
                     "</p>", "text/html; charset=utf-8", "UTF-8" );
 
-
             mArticleTitleView.setText(mArticleTitle);
 
             mAuthorView.setText("By " + article.getAuthor());
-
-
-
-
         }
 
 
@@ -147,13 +137,10 @@ public class DetailsFragment extends Fragment {
             }
         });
 
-
-
         return view;
-
     }
 
 
-    }
+}
 
 
